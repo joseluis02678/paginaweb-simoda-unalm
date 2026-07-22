@@ -1,45 +1,49 @@
 /* =========================================
-   ESTILOS GLOBALES - SEMILLERO SIMODA UNALM
+   TOKENS DE DISEÑO — SEMILLERO SIMODA UNALM
+   Identidad: chacra andina + cuaderno de campo
    ========================================= */
 
-/* 1. Reset básico y variables de colores UNALM */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
 :root {
-  --color-primary: #1a4d2e;       /* Verde oscuro UNALM */
-  --color-secondary: #2d6a4f;     /* Verde medio */
-  --color-accent: #e9c46a;        /* Dorado/Amarillo agrícola */
-  --color-accent-hover: #f4a261;  /* Naranja suave */
-  --color-bg: #f9fafb;            /* Fondo gris muy claro */
-  --color-text: #1f2937;          /* Texto gris oscuro */
-  --color-text-light: #6b7280;    /* Texto secundario */
-  --color-white: #ffffff;
-  
-  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  
-  font-family: var(--font-sans);
+  /* Paleta — tierra, chacra y textil andino, no la plantilla típica de IA */
+  --verde-chacra: #1f3d2e;   /* verde profundo, casi musgo — color primario */
+  --verde-hoja: #3c6b4a;     /* verde hoja — secundario */
+  --tierra: #a15c32;         /* arcilla/adobe — acento cálido */
+  --maiz: #d4a017;           /* maíz — acento dorado, CTA */
+  --azul-andino: #2c5f6f;    /* azul-teal textil — enlaces y datos */
+  --crema: #f6f1e4;          /* papel/pergamino — fondo claro */
+  --crema-oscura: #ece3cd;   /* fondo alterno de sección */
+  --tinta: #1c2420;          /* texto principal, casi negro-verde */
+  --tinta-suave: #5b6660;    /* texto secundario */
+  --blanco: #ffffff;
+  --linea: rgba(28, 36, 32, 0.14); /* hairline rules */
+
+  --fuente-display: 'Fraunces', Georgia, serif;
+  --fuente-cuerpo: 'Work Sans', 'Segoe UI', sans-serif;
+  --fuente-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  font-family: var(--fuente-cuerpo);
   line-height: 1.6;
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  
-  /* Suavizado de fuentes */
+  color: var(--tinta);
+  background-color: var(--crema);
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 2. Reset de márgenes y padding */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 3. Estilos base del cuerpo */
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* 4. El contenedor principal de React */
 #root {
   width: 100%;
   min-height: 100vh;
@@ -47,24 +51,35 @@ body {
   flex-direction: column;
 }
 
-/* 5. Estilos para enlaces */
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
-/* 6. Scroll suave para los enlaces de navegación */
 html {
   scroll-behavior: smooth;
 }
 
-/* 7. Modo oscuro opcional (si quieres que se adapte al sistema del usuario) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #111827;
-    --color-text: #f3f4f6;
-    --color-text-light: #9ca3af;
-    --color-white: #1f2937;
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Foco visible para navegación por teclado */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--maiz);
+  outline-offset: 3px;
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
