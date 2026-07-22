@@ -164,3 +164,4 @@ Este proyecto es de código abierto y está bajo la Licencia MIT. Consulta el ar
 
 **Hecho con ❤️ y ☕ por estudiantes de Estadística Informática - UNALM**
 © 2026 Semillero de Investigación SIMODA
+
