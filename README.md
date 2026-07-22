@@ -1,7 +1,7 @@
 # 🌾 Sitio Web del Semillero SIMODA - UNALM
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/joseluis02678/paginaweb-simoda-unalm)
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?logo=vercel)](https://paginaweb-simoda-unalm.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?logo=vercel)](https://paginaweb-simoda-unalm-7lal.vercel.app)
 [![Estado](https://img.shields.io/badge/Estado-En%20Desarrollo-yellow)]()
 [![React](https://img.shields.io/badge/React-19.2.7-61DAFB?logo=react)]()
 [![Vite](https://img.shields.io/badge/Vite-8.1.5-646CFF?logo=vite)]()
