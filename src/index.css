@@ -1,0 +1,70 @@
+/* =========================================
+   ESTILOS GLOBALES - SEMILLERO SIMODA UNALM
+   ========================================= */
+
+/* 1. Reset básico y variables de colores UNALM */
+:root {
+  --color-primary: #1a4d2e;       /* Verde oscuro UNALM */
+  --color-secondary: #2d6a4f;     /* Verde medio */
+  --color-accent: #e9c46a;        /* Dorado/Amarillo agrícola */
+  --color-accent-hover: #f4a261;  /* Naranja suave */
+  --color-bg: #f9fafb;            /* Fondo gris muy claro */
+  --color-text: #1f2937;          /* Texto gris oscuro */
+  --color-text-light: #6b7280;    /* Texto secundario */
+  --color-white: #ffffff;
+  
+  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  
+  /* Suavizado de fuentes */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Reset de márgenes y padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 3. Estilos base del cuerpo */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 4. El contenedor principal de React */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 5. Estilos para enlaces */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* 6. Scroll suave para los enlaces de navegación */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 7. Modo oscuro opcional (si quieres que se adapte al sistema del usuario) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #111827;
+    --color-text: #f3f4f6;
+    --color-text-light: #9ca3af;
+    --color-white: #1f2937;
+  }
+}

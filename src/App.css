@@ -1,0 +1,122 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+/* Header */
+.header {
+  background-color: #1a4d2e; /* Verde UNALM */
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #a3d9a5; /* Verde claro al pasar el mouse */
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #1a4d2e 0%, #2d6a4f 100%);
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-section h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: #a3d9a5;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  font-style: italic;
+  opacity: 0.9;
+  margin-bottom: 2rem !important;
+}
+
+.btn-primary {
+  background-color: #e9c46a; /* Dorado/Amarillo agrícola */
+  color: #1a4d2e;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #f4a261;
+  transform: translateY(-2px);
+}
+
+/* Secciones generales */
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  color: #1a4d2e;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* Footer */
+.footer {
+  background-color: #111827;
+  color: #9ca3af;
+  text-align: center;
+  padding: 2rem;
+  margin-top: auto; /* Empuja el footer al fondo */
+}
