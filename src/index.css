@@ -9,13 +9,14 @@
   /* Paleta — tierra, chacra y textil andino, no la plantilla típica de IA */
   --verde-chacra: #1f3d2e;   /* verde profundo, casi musgo — color primario */
   --verde-hoja: #3c6b4a;     /* verde hoja — secundario */
-  --tierra: #a15c32;         /* arcilla/adobe — acento cálido */
+  --tierra: #a15c32;         /* arcilla/adobe — acento cálido (bordes, fondos decorativos) */
+  --tierra-texto: #8a4526;   /* misma familia, más oscura — para texto, contraste AA sobre crema/blanco */
   --maiz: #d4a017;           /* maíz — acento dorado, CTA */
   --azul-andino: #2c5f6f;    /* azul-teal textil — enlaces y datos */
   --crema: #f6f1e4;          /* papel/pergamino — fondo claro */
   --crema-oscura: #ece3cd;   /* fondo alterno de sección */
   --tinta: #1c2420;          /* texto principal, casi negro-verde */
-  --tinta-suave: #5b6660;    /* texto secundario */
+  --tinta-suave: #4a534e;    /* texto secundario — oscurecido para contraste AA sobre crema */
   --blanco: #ffffff;
   --linea: rgba(28, 36, 32, 0.14); /* hairline rules */
 

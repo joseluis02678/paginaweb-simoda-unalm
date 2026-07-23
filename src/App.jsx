@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 // Logos
@@ -13,7 +14,6 @@ import analisisDatos from './assets/images/lineas-investigacion/analisis-de-dato
 // Institucionales
 import mision from './assets/images/institucionales/mision.jpeg'
 import vision from './assets/images/institucionales/vision.jpeg'
-import contacto from './assets/images/institucionales/contacto.jpeg'
 
 // Redes sociales
 import feriaVocacional from './assets/images/redes-sociales/feria-vocacional-2026-1.jpeg'
@@ -21,8 +21,13 @@ import semanaInvestigacion from './assets/images/redes-sociales/semana-investiga
 import conoceSimoda from './assets/images/redes-sociales/conoce-simoda.jpeg'
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const closeMenu = () => setMenuOpen(false)
+
   return (
     <div className="app-container">
+      <a href="#main-content" className="skip-link">Saltar al contenido principal</a>
+
       {/* HEADER */}
       <header className="header">
         <div className="logo-container">
@@ -35,17 +40,32 @@ function App() {
             <h1>Semillero SIMODA</h1>
           </div>
         </div>
-        <nav className="nav">
-          <a href="#inicio">Inicio</a>
-          <a href="#nosotros">Nosotros</a>
-          <a href="#lineas">Líneas</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#servicios">Servicios</a>
-          <a href="#galeria">Galería</a>
-          <a href="#integrantes">Integrantes</a>
-          <a href="#contacto">Contacto</a>
+
+        <button
+          className="nav-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="nav-principal"
+          aria-label={menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav id="nav-principal" className={`nav ${menuOpen ? 'nav-open' : ''}`}>
+          <a href="#inicio" onClick={closeMenu}>Inicio</a>
+          <a href="#nosotros" onClick={closeMenu}>Nosotros</a>
+          <a href="#lineas" onClick={closeMenu}>Líneas</a>
+          <a href="#proyectos" onClick={closeMenu}>Proyectos</a>
+          <a href="#servicios" onClick={closeMenu}>Servicios</a>
+          <a href="#galeria" onClick={closeMenu}>Galería</a>
+          <a href="#integrantes" onClick={closeMenu}>Integrantes</a>
+          <a href="#contacto" onClick={closeMenu}>Contacto</a>
         </nav>
       </header>
+
+      <main id="main-content">
 
       {/* HERO */}
       <section id="inicio" className="hero-section">
@@ -79,10 +99,10 @@ function App() {
         <h2>Misión y Visión</h2>
         <div className="mv-grid">
           <div className="mv-card">
-            <img src={mision} alt="Misión SIMODA" />
+            <img src={mision} alt="Misión SIMODA" loading="lazy" decoding="async" />
           </div>
           <div className="mv-card">
-            <img src={vision} alt="Visión SIMODA" />
+            <img src={vision} alt="Visión SIMODA" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
@@ -96,21 +116,21 @@ function App() {
         <div className="features-grid">
           <div className="feature-card">
             <span className="field-code">CD</span>
-            <img src={cienciaDatos} alt="Ciencia de Datos" className="feature-img" />
+            <img src={cienciaDatos} alt="Ciencia de Datos" className="feature-img" loading="lazy" decoding="async" />
             <h3>Ciencia de Datos</h3>
             <p>Aplicamos técnicas avanzadas para transformar datos en conocimiento útil y aplicable</p>
           </div>
 
           <div className="feature-card">
             <span className="field-code">ME</span>
-            <img src={modelamiento} alt="Modelamiento Estadístico" className="feature-img" />
+            <img src={modelamiento} alt="Modelamiento Estadístico" className="feature-img" loading="lazy" decoding="async" />
             <h3>Modelamiento Estadístico</h3>
             <p>Desarrollamos modelos que explican, predicen y optimizan procesos agropecuarios</p>
           </div>
 
           <div className="feature-card">
             <span className="field-code">AD</span>
-            <img src={analisisDatos} alt="Análisis de Datos" className="feature-img" />
+            <img src={analisisDatos} alt="Análisis de Datos" className="feature-img" loading="lazy" decoding="async" />
             <h3>Análisis de Datos</h3>
             <p>Extraemos información valiosa para comprender fenómenos y tomar mejores decisiones</p>
           </div>
@@ -204,7 +224,7 @@ function App() {
 
         <div className="social-gallery">
           <div className="social-card">
-            <img src={feriaVocacional} alt="Feria Vocacional 2026" className="social-img" />
+            <img src={feriaVocacional} alt="Feria Vocacional 2026" className="social-img" loading="lazy" decoding="async" />
             <div className="social-overlay">
               <h3>Feria Vocacional 2026 - I</h3>
               <p>Inspirando a la próxima generación</p>
@@ -212,7 +232,7 @@ function App() {
           </div>
 
           <div className="social-card">
-            <img src={semanaInvestigacion} alt="Semana de la Investigación" className="social-img" />
+            <img src={semanaInvestigacion} alt="Semana de la Investigación" className="social-img" loading="lazy" decoding="async" />
             <div className="social-overlay">
               <h3>Semana de la Investigación 2026</h3>
               <p>Facultad de Economía y Planificación</p>
@@ -220,7 +240,7 @@ function App() {
           </div>
 
           <div className="social-card">
-            <img src={conoceSimoda} alt="Conoce SIMODA" className="social-img" />
+            <img src={conoceSimoda} alt="Conoce SIMODA" className="social-img" loading="lazy" decoding="async" />
             <div className="social-overlay">
               <h3>Conoce un poco más de nosotros</h3>
               <p>Únete al semillero</p>
@@ -302,14 +322,18 @@ function App() {
           ¿Tienes un proyecto o necesitas asesoría? ¡Escríbenos!
         </p>
         <div className="contacto-container">
-          <img src={contacto} alt="Información de contacto SIMODA" className="contacto-img" />
+          <div className="contacto-visual" aria-hidden="true">
+            <span className="field-code">SIMODA</span>
+            <p className="contacto-visual-titulo">Círculo de<br />Investigación</p>
+            <p className="contacto-visual-sub">UNALM · Facultad de Economía y Planificación</p>
+          </div>
           <div className="contacto-info">
             <h3>Email</h3>
             <p>simoda@lamolina.edu.pe</p>
 
             <h3>LinkedIn</h3>
-            <a href="https://linkedin.com/company/simoda" target="_blank" rel="noopener noreferrer">
-              simoda
+            <a href="https://www.linkedin.com/company/simoda-unalm/" target="_blank" rel="noopener noreferrer">
+              simoda-unalm
             </a>
 
             <h3>Instagram</h3>
@@ -322,6 +346,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      </main>
 
       {/* FOOTER */}
       <footer className="footer">

@@ -13,6 +13,26 @@
   color: var(--tinta);
 }
 
+/* ---------- Accesibilidad: saltar al contenido ---------- */
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 2000;
+  background: var(--maiz);
+  color: var(--verde-chacra);
+  font-family: var(--fuente-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 2px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
 /* ---------- Header ---------- */
 .header {
   background-color: var(--verde-chacra);
@@ -66,6 +86,42 @@
 .nav {
   display: flex;
   align-items: center;
+}
+
+/* Botón hamburguesa — oculto en desktop, visible solo en mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--blanco);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .nav a {
@@ -290,8 +346,7 @@
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: var(--tierra);
-  background: rgba(161, 92, 50, 0.08);
+  color: var(--tierra-texto);
   border: 1px solid rgba(161, 92, 50, 0.25);
   padding: 0.2rem 0.55rem;
   border-radius: 2px;
@@ -453,7 +508,7 @@
 
 .grupo-docente {
   font-family: var(--fuente-mono);
-  color: var(--tierra);
+  color: var(--tierra-texto);
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -501,6 +556,56 @@
   border-radius: 4px;
 }
 
+/* Panel visual que reemplaza la ilustración — reutiliza la
+   signatura de "parcela de datos" del hero, sin imagen fotográfica. */
+.contacto-visual {
+  position: relative;
+  background-color: var(--verde-chacra);
+  color: var(--blanco);
+  border-radius: 4px;
+  padding: 3rem 2rem;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.contacto-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--maiz) 1.5px, transparent 1.6px);
+  background-size: 36px 36px;
+}
+
+.contacto-visual .field-code {
+  position: relative;
+  color: var(--maiz);
+  background: rgba(212, 160, 23, 0.12);
+  border-color: rgba(212, 160, 23, 0.4);
+}
+
+.contacto-visual-titulo {
+  position: relative;
+  font-family: var(--fuente-display);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 1rem 0 0.5rem;
+}
+
+.contacto-visual-sub {
+  position: relative;
+  font-family: var(--fuente-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  color: #b7d8bf;
+}
+
 .contacto-info {
   text-align: left;
 }
@@ -532,7 +637,7 @@
 }
 
 .contacto-info a:hover {
-  color: var(--tierra);
+  color: var(--tierra-texto);
   text-decoration: underline;
 }
 
@@ -573,9 +678,8 @@
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+    padding: 0.9rem 1.25rem;
+    position: relative;
   }
 
   .logos {
@@ -583,13 +687,38 @@
     padding-right: 0;
   }
 
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Drawer: oculto fuera de pantalla por defecto, se desliza al abrir */
   .nav {
-    flex-wrap: wrap;
-    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(78vw, 320px);
+    background-color: var(--verde-chacra);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 5.5rem 1.5rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.28s ease;
+    z-index: 999;
+  }
+
+  .nav-open {
+    transform: translateX(0);
   }
 
   .nav a {
-    margin: 0.3rem 0.6rem;
+    margin: 0;
+    padding: 0.9rem 0.25rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .hero-section {
@@ -623,6 +752,11 @@
   }
 
   .contacto-info {
+    text-align: center;
+  }
+
+  .contacto-visual {
+    align-items: center;
     text-align: center;
   }
 
